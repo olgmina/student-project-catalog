@@ -15,7 +15,7 @@
   - [Модуль авторизации](#versioning)
   - [Хранилище личных достижений](DataBase-developer/README.md)
   - [Аквариум](ThreadsAquarium-master/README.md)
-  - [Векторный растровый редактор](GrafRedactor/README.md)
+  - [Графический растровый редактор](GrafRedactor/README.md)
   - [Статистический анализатор для построения блоковых графиков](blocks-diagram-master/README.md)
   - [Прототип мобильного приложения Навигатор гостя Университета](UniversityNavigation-main/README.md)
 - Техники
