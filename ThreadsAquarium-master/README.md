@@ -6,4 +6,4 @@
 ## Паттерны 
   1. Поставщик-потребитель
 ## Инструменты
-![Image alt](img/Screenshot_5.png)
+![Image alt](../img/Screenshot_5.png)
