@@ -14,5 +14,3 @@
 <br>
 <h1>Диаграмма классов</h1>
 <img src="https://s8.hostingkartinok.com/uploads/images/2020/06/a58d8ac5f0eff9801acce8be4a508443.png">
-## Приглашение к сотрудничеству
-Загрузите исходные тексты или клонируйте их с помощью команды git clone в выбранный каталог: git clone [https://github.com/vladder2312/AlarmSystem.git](https://github.com/vladder2312/AlarmSystem.git) и создайте ветку
