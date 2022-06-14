@@ -9,7 +9,6 @@
   - [Редактор CSS-стилей для fxml-форм](EditorCSS-main/README.md)
   - [Веб-сервер совместного расписания](WebShedule-main/README.md)  
   - [Векторный редактор](EditorPlaneNetwork-main/README.md)
-  - [Сборщик файлов](#сборщик)
   - [Моделирование пожарной сигнализации](AlarmSystem-master/README.md)
   - [Метеостанция](ClientServer-master/README.md)
   - [Модуль авторизации](#versioning)
