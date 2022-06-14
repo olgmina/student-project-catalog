@@ -1,0 +1,131 @@
+@startuml
+class WebSchedule.Program.Configuration.WebSecurityConfig {
+~ UserDetailsServiceImpl userDetailsService
++ <<Create>> WebSecurityConfig(UserDetailsServiceImpl)
++ {static} BCryptPasswordEncoder passwordEncoder()
++ void configureGlobal(AuthenticationManagerBuilder)
+# void configure(HttpSecurity)
+}
+class WebSchedule.Program.Controller.MainController {
+~ SheduleDAOImpl service
++ UserDAO user
++ String getIndex(Model)
++ String getSchedule(Model)
++ String login(Model)
++ String editEmployeeById(Model,Optional<Long>)
++ String deleteEmployeeById(Model,Long)
++ String createOrUpdateEmployee(Schedule,Principal)
++ String registerUser(Model)
++ String createUser(UserTable)
+}
+interface WebSchedule.Program.Model.DAO {
++ int count()
++ void add(Entity)
++ Entity getById(Long)
++ void update(Entity)
++ void deleteById(Long)
+}
+class WebSchedule.Program.Exeption.RecordNotFoundException {
+- {static} long serialVersionUID
++ <<Create>> RecordNotFoundException(String)
++ <<Create>> RecordNotFoundException(String,Throwable)
+}
+class WebSchedule.Program.Model.SpringSecurity {
++ PasswordEncoder passwordEncoder()
+# void configure(HttpSecurity)
+}
+class WebSchedule.Program.Service.UserDetailsServiceImpl {
+- UserDAO appUserDAO
++ <<Create>> UserDetailsServiceImpl()
++ UserDetails loadUserByUsername(String)
+}
+class WebSchedule.Program.ProgramApplication {
++ {static} void main(String[])
+}
+class WebSchedule.Program.Model.SheduleDAOImpl {
+- JdbcTemplate jdbcTemplate
+- Environment env
++ <<Create>> SheduleDAOImpl()
++ int count()
++ void add(Entity)
++ Entity getById(Long)
++ void update(Entity)
++ void deleteById(Long)
++ List<Schedule> getAll()
+}
+class WebSchedule.Program.Model.Schedule {
+- Long id
+- UserTable user
+- String NameDay
+- String Auditorium
+- String NameClasses
+- LocalDateTime DateStart
+- int number
++ <<Create>> Schedule()
++ int getNumber()
++ void setNumber(int)
++ String getAuditorium()
++ void setAuditorium(String)
++ String getNameClasses()
++ void setNameClasses(String)
++ LocalDateTime getDateStart()
++ void setDateStart(LocalDateTime)
++ String StringDate()
++ Long getId()
++ void setId(Long)
++ UserTable getUser()
++ void setUser(UserTable)
++ String getNameDay()
++ void setNameDay(String)
++ String getType()
+}
+class WebSchedule.Program.Model.UserMapper {
++ {static} String BASE_SQL
++ UserTable mapRow(ResultSet,int)
+}
+class WebSchedule.Program.Model.UserDAO {
+- JdbcTemplate jdbcTemplate
+- Environment env
++ <<Create>> UserDAO()
++ int count()
++ List<String> getRoleNames(Long)
++ void add(Entity)
++ Entity getById(Long)
++ UserTable getByLogin(String)
++ void update(Entity)
++ void deleteById(Long)
++ List<UserTable> getAll()
+}
+interface WebSchedule.Program.Model.Entity {
++ String getType()
+}
+class WebSchedule.Program.Model.SheduleMapper {
++ Schedule mapRow(ResultSet,int)
+}
+class WebSchedule.Program.Model.UserTable {
+- Long id
+- String login
+- String password
++ <<Create>> UserTable(Long,String,String)
++ <<Create>> UserTable()
++ Long getId()
++ void setId(Long)
++ String getLogin()
++ void setLogin(String)
++ String getPassword()
++ void setPassword(String)
++ String getType()
+}
+
+
+org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter <|-- WebSchedule.Program.Configuration.WebSecurityConfig
+WebSchedule.Program.Exeption.Exception <|-- WebSchedule.Program.Exeption.RecordNotFoundException
+org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter <|-- WebSchedule.Program.Model.SpringSecurity
+org.springframework.security.core.userdetails.UserDetailsService <|.. WebSchedule.Program.Service.UserDetailsServiceImpl
+WebSchedule.Program.Model.DAO <|.. WebSchedule.Program.Model.SheduleDAOImpl
+WebSchedule.Program.Model.Entity <|.. WebSchedule.Program.Model.Schedule
+org.springframework.jdbc.core.RowMapper <|.. WebSchedule.Program.Model.UserMapper
+WebSchedule.Program.Model.DAO <|.. WebSchedule.Program.Model.UserDAO
+org.springframework.jdbc.core.RowMapper <|.. WebSchedule.Program.Model.SheduleMapper
+WebSchedule.Program.Model.Entity <|.. WebSchedule.Program.Model.UserTable
+@enduml

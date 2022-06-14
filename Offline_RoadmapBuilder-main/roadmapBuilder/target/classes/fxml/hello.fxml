@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="166.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.planworks.roadmap.controller.MainController">
+    <Button fx:id="newProjectBtn" layoutX="88.0" layoutY="70.0" mnemonicParsing="false" onAction="#newProjectBtn_Click" text="Создать новый проект" />
+    <Button fx:id="openPrjBtn" layoutX="62.0" layoutY="118.0" mnemonicParsing="false" onAction="#openPrjBtn_Click" text="Открыть существующий проект" />
+    <Label layoutX="14.0" layoutY="14.0" text="Построитель дорожных карт" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+        <font>
+          <Font name="ItalicT" size="14.0" />
+        </font>
+    </Label>
+</AnchorPane>

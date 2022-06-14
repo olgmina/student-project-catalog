@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.editorcss.Controller.ViewerControll">
+   <children>
+      <TextArea fx:id="textCode" layoutX="20.0" layoutY="40.0" prefHeight="343.0" prefWidth="414.0" />
+      <Label fx:id="labelname" layoutX="20.0" layoutY="19.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="490.0" layoutY="27.0" mnemonicParsing="false" onAction="#Open" text="Загрузить файл" />
+      <Button layoutX="514.0" layoutY="357.0" mnemonicParsing="false" text="Выход" />
+      <Button layoutX="502.0" layoutY="67.0" mnemonicParsing="false" onAction="#Save" text="Сохранить" />
+   </children>
+</AnchorPane>

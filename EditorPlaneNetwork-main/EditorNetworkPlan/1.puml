@@ -1,0 +1,67 @@
+@startuml
+class ElementAdapter {
+~ List<Element> elementList
+~ Pane workspace
+}
+class PlaneNetwork {
+~ Cable cable
+~ ElementAdapter elementAdapter
+}
+class Cable {
+- Canvas canvas
+- GraphicsContext gc
+- double startX
+- double startY
+- double endX
+- double endY
+~ double size
+- Color color
+}
+class Router {
+}
+class PC {
+}
+class FileWorker {
+~ ArrayList<Element> C
+}
+class Application {
+}
+class MainController {
+- Label welcomeText
+- Pane mainPane
+- Canvas canvas
+- Label Mode
+- ComboBox box
+~ BackgroundImage background
+~ int action
+- double Y
+~ PlaneNetwork planeNetwork
+~ FileWorker fileWorker
+}
+class ElementFactory {
+}
+class Switch {
+}
+abstract class Element {
+- double X
+- double Y
+- int id
+- VBox container
+- Pane pane
+}
+
+
+Serializable <|.. ElementAdapter
+Serializable <|.. PlaneNetwork
+Serializable <|.. Cable
+Serializable <|.. Router
+Element <|-- Router
+Serializable <|.. PC
+Element <|-- PC
+Application <|-- Application
+Initializable <|.. MainController
+Serializable <|.. Switch
+Element <|-- Switch
+Serializable <|.. Element
+Cloneable <|.. Element
+@enduml

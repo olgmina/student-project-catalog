@@ -1,0 +1,159 @@
+@startuml
+class org.planworks.roadmap.graphicElements.RoadmapObject {
+~ Road road
+~ Marks marks
++ Road getRoad()
++ Marks getMarks()
+}
+class org.planworks.roadmap.graphicElements.Mark {
+- double X
+- double Y
+- int id
+- DatePicker datePicker
+- String date
++ MarkTasks tasks
+- VBox container
+- Pane pane
++ String getDate()
+- void markSetting(ImageView)
+- void draw(Pane,ImageView)
++ VBox getNode()
++ void move(double,double)
++ int getId()
++ double getX()
++ double getY()
++ Mark clone()
+}
+class org.planworks.roadmap.graphicElements.Road {
+- Canvas canvas
+- GraphicsContext gc
+~ double size
+- Color color
+- Canvas getCanvas()
++ void setColor(Color)
++ void setSize(double)
+- Color getColor()
+- double getSize()
++ void draw(double,double,boolean)
++ void reset()
+}
+class org.planworks.roadmap.adapters.Marks {
+~ List<Mark> marks
+~ Pane workspace
+~ MemoSelect memoSelect
++ Mark FocusedMark
++ Mark add(double,double,String)
++ MemoSelect getMemoSelect()
+- void clearMemoSelect()
++ void clear()
+- void focus(Mark)
+- void unFocus()
+- ContextMenu contextMenu(Mark)
++ List<Mark> getAll()
+- void setMarks(List<Mark>)
++ Mark get(int)
+- Mark get(Mark)
++ void delete(Mark)
+}
+class org.planworks.roadmap.selector.Momento {
+- Mark mark
++ Mark getState()
++ Mark initState()
+}
+class org.planworks.roadmap.adapters.MarkTasks {
+~ List<MarkTask> tasks
+- int markId
+~ VBox container
++ MarkTask add(String)
++ MarkTask get(MarkTask)
+- void update(MarkTask,String)
+- void delete(MarkTask)
++ List<MarkTask> getAllTasks()
+- int getMarkId()
+}
+class org.planworks.roadmap.controller.MainController {
++ Button newProjectBtn
++ Button openPrjBtn
++ void constructorOpen(File)
++ void newProjectBtn_Click()
++ void openPrjBtn_Click()
+}
+class org.planworks.roadmap.MainApp {
++ {static} Stage javaFXC
++ void start(Stage)
++ {static} void main(String[])
+}
+class org.planworks.roadmap.adapters.fileWorker {
++ {static} void saveFile(File,Image,Marks,double,double)
++ {static} void loadFile(File,BackgroundImage,Marks,Pane)
+- {static} void saveImage(Image,ObjectOutputStream)
+- {static} Image getImage(ObjectInputStream)
++ {static} void saveImagePNG(Pane,File)
++ {static} Image saveImagePNG(Pane,Marks,Canvas)
+}
+class org.planworks.roadmap.graphicElements.MarkTask {
+- String text
+- int id
+- TextField node
+- void labelSetting()
++ TextField getNode()
++ String getText()
++ void setText(String)
++ int getId()
+}
+class org.planworks.roadmap.controller.ConstructorController {
++ Pane workspace
++ Canvas canvas
++ ColorPicker roadColor
++ Slider sizeRoad
++ CheckBox selection
+~ BackgroundImage background
+~ RoadmapObject roadmapObject
+~ selectorRect rect
+~ Boolean opened
++ void initialize(URL,ResourceBundle)
++ void captureAndSaveDisplay()
++ void onBegin(MouseEvent)
++ void onDrag(MouseEvent)
++ void mouseClicked(MouseEvent)
++ void onStop()
++ void onEnd(MouseEvent)
++ void saveFile()
++ void openFile()
++ void showAbout()
++ void clearAll()
++ void setBackground()
++ void setBackgroundImage(Image)
++ void addMark(MouseEvent)
+}
+class org.planworks.roadmap.selector.MemoSelect {
+- Queue<Momento> mementoList
++ void push(Momento)
++ Object[] select()
++ Momento poll()
++ void remove(Mark)
+- Momento peek()
++ boolean isEmpty()
++ boolean contains(Momento)
+- void moveAll(MouseEvent)
+}
+class org.planworks.roadmap.selector.selectorRect {
+- Rectangle selectRectangle
+- boolean firstX
+- double tempX
+- double tempY
++ void onBegin(MouseEvent,Pane)
++ void onDrag(MouseEvent,Marks,Pane)
++ void onStop(Pane)
++ void onEnd(Marks)
+}
+
+
+java.io.Serializable <|.. org.planworks.roadmap.graphicElements.Mark
+java.io.Serializable <|.. org.planworks.roadmap.graphicElements.Road
+java.io.Serializable <|.. org.planworks.roadmap.adapters.Marks
+java.io.Serializable <|.. org.planworks.roadmap.adapters.MarkTasks
+javafx.application.Application <|-- org.planworks.roadmap.MainApp
+java.io.Serializable <|.. org.planworks.roadmap.graphicElements.MarkTask
+javafx.fxml.Initializable <|.. org.planworks.roadmap.controller.ConstructorController
+@enduml

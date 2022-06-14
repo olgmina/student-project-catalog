@@ -1,0 +1,121 @@
+@startuml
+class UI.NodeLineConnectionBuilder {
++ Line create()
+}
+interface File.IFileSave {
++ void save(ProjectTimeLine)
+}
+class File.FileLoad {
++ void start(Stage)
++ ProjectTimeLine load()
+}
+interface Tool.ITool {
+}
+class UI.NodeButtonBuilder {
++ Button create()
+}
+class File.FileSave {
++ void start(Stage)
++ void save(ProjectTimeLine)
+}
+class UI.InspectorNode {
++ NodeButtonControl getNodeButtonControl()
++ void setNode(NodeButtonControl)
++ boolean getIsActive()
++ void show()
++ void hide()
+}
+class com.example.projecttimeline.HelloController {
++ void initialize(URL,ResourceBundle)
+}
+class ProjectTimeLine.TimeLine.ProjectTimeLine {
++ UICanvas uiCanvas
++ Node startNode
+}
+class UI.NodeButtonControl {
++ List<NodeButtonControl> childButtonControls
++ void setStyle(String,String)
++ void setColorNode(Color)
++ void setRadius(double)
++ String toString()
++ void setName(String)
++ void setParent(NodeButtonControl)
++ NodeButtonControl getParent()
++ void setLineToParent(Line)
++ Line getLineToParent()
++ Node getNode()
++ Button getButton()
++ boolean getIsChildShow()
++ void show()
++ void hideChildNodes()
+}
+class Tool.MovedNodeTool {
++ void start()
++ void movedLineToParent(NodeButtonControl)
++ void end()
+}
+class UI.NodeButtonControlDelete {
++ void delete(NodeButtonControl)
+}
+class ProjectTimeLine.TimeLine.UICanvas {
++ double width
++ double height
++ Color color
+}
+class com.example.projecttimeline.HelloApplication {
++ void start(Stage)
++ {static} void main(String[])
+}
+class Tool.PlaceNodeTool {
++ void start()
++ void end()
++ void setIsNoAddInParentChildNodes(boolean)
++ void placeButtonNode(double,double)
+}
+class UI.NodeButtonControlBuilder {
++ NodeButtonControl create()
+}
+class ProjectTimeLine.TimeLine.Node {
++ String name
++ String description
++ UINode uiNode
++ List<Node> childNodes
+}
+class UI.TimeLineTreeView {
++ void setStartNode(NodeButtonControl)
++ void treeViewUpdate()
+}
+class UI.InspectorCanvas {
++ void setProjectTimeLine(ProjectTimeLine)
++ void setColor(Color)
+}
+interface File.IFileLoad {
++ ProjectTimeLine load()
+}
+class ProjectTimeLine.TimeLine.UINode {
++ double posX
++ double posY
++ double radius
++ Color color
+}
+class Tool.CreateNodeButtonControlTool {
++ void start()
++ void end()
++ NodeButtonControl create(NodeButtonControl,Node)
+}
+class File.FileManager {
++ IFileSave getFileSave()
++ IFileLoad getFileLoad()
+}
+
+
+File.IFileLoad <|.. File.FileLoad
+javafx.application.Application <|-- File.FileLoad
+File.IFileSave <|.. File.FileSave
+javafx.application.Application <|-- File.FileSave
+javafx.fxml.Initializable <|.. com.example.projecttimeline.HelloController
+Tool.ITool <|.. Tool.MovedNodeTool
+javafx.application.Application <|-- com.example.projecttimeline.HelloApplication
+Tool.ITool <|.. Tool.PlaceNodeTool
+Tool.ITool <|.. Tool.CreateNodeButtonControlTool
+@enduml

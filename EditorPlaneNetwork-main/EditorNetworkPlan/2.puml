@@ -1,0 +1,137 @@
+@startuml
+class com.example.editornetworkplan.Model.ElementAdapter {
+~ List<Element> elementList
+~ Pane workspace
++ List<Element> getElementList()
++ Element add(double,double,int)
++ void addAll(List<Element>)
++ void clear()
++ List<Element> getAll()
++ Element get(int)
+- Element get(Element)
++ void delete(Element)
+}
+class com.example.editornetworkplan.Model.PlaneNetwork {
+~ Cable cable
+~ ElementAdapter elementAdapter
++ Cable getCable()
++ ElementAdapter getElementAdapter()
++ void clear()
+}
+class com.example.editornetworkplan.Model.Cable {
+- Canvas canvas
+- GraphicsContext gc
+- double startX
+- double startY
+- double endX
+- double endY
+~ double size
+- Color color
++ void onPressed(MouseEvent)
++ void onRelased(MouseEvent)
+- Canvas getCanvas()
++ void setColor(Color)
++ void setSize(double)
+- Color getColor()
+- double getSize()
++ void draw(double,double)
++ double getStartX()
++ void setStartX(double)
++ double getStartY()
++ void setStartY(double)
++ double getEndX()
++ void setEndX(double)
++ double getEndY()
++ void setEndY(double)
++ void reset()
+}
+class com.example.editornetworkplan.Model.Router {
+# void markSetting(ImageView)
++ String toString()
+}
+class com.example.editornetworkplan.Model.PC {
+# void markSetting(ImageView)
+}
+class com.example.editornetworkplan.Model.FileWorker {
+~ ArrayList<Element> C
++ ImageView OpenImg(Pane)
++ void Save(ArrayList<Element>)
++ ArrayList<Element> Load()
+- {static} void saveImage(Image,ObjectOutputStream)
+- {static} Image getImage(ObjectInputStream)
++ {static} void saveImagePNG(Pane)
+}
+class com.example.editornetworkplan.Application {
++ void start(Stage)
++ {static} void main(String[])
+}
+class com.example.editornetworkplan.Controller.MainController {
+- Label welcomeText
+- Pane mainPane
+- Canvas canvas
+- Label Mode
+- ComboBox box
+~ BackgroundImage background
+~ int action
+- double Y
+~ PlaneNetwork planeNetwork
+~ FileWorker fileWorker
++ void initialize(URL,ResourceBundle)
++ void onAddElement(ActionEvent)
++ void onAddCable(ActionEvent)
++ void onMoveElement(ActionEvent)
++ void onDeleteElement(ActionEvent)
++ void onDeleteAllElement(ActionEvent)
+- int McFocus()
++ void onMm(MouseEvent)
++ void clearCombo()
++ void onMClick(MouseEvent)
++ void OpenImg()
++ void clearAll()
++ void SaveFaile()
++ void showAbout(ActionEvent)
++ void onLoad(ActionEvent)
++ void onSavepng(ActionEvent)
++ void onloadBg(ActionEvent)
+}
+class com.example.editornetworkplan.Model.ElementFactory {
++ Element getNewElement(double,double,int,Pane,int)
+}
+class com.example.editornetworkplan.Model.Switch {
+# void markSetting(ImageView)
++ String toString()
+}
+abstract class com.example.editornetworkplan.Model.Element {
+- double X
+- double Y
+- int id
+- VBox container
+- Pane pane
+- void draw(Pane,ImageView)
+# void markSetting(ImageView)
++ int getId()
++ VBox getContainer()
++ double getX()
++ void setX(double)
++ void move(double,double)
++ double getY()
++ VBox getNode()
++ void setY(double)
++ Element clone()
+}
+
+
+java.io.Serializable <|.. com.example.editornetworkplan.Model.ElementAdapter
+java.io.Serializable <|.. com.example.editornetworkplan.Model.PlaneNetwork
+java.io.Serializable <|.. com.example.editornetworkplan.Model.Cable
+java.io.Serializable <|.. com.example.editornetworkplan.Model.Router
+com.example.editornetworkplan.Model.Element <|-- com.example.editornetworkplan.Model.Router
+java.io.Serializable <|.. com.example.editornetworkplan.Model.PC
+com.example.editornetworkplan.Model.Element <|-- com.example.editornetworkplan.Model.PC
+com.example.editornetworkplan.Application <|-- com.example.editornetworkplan.Application
+javafx.fxml.Initializable <|.. com.example.editornetworkplan.Controller.MainController
+java.io.Serializable <|.. com.example.editornetworkplan.Model.Switch
+com.example.editornetworkplan.Model.Element <|-- com.example.editornetworkplan.Model.Switch
+java.io.Serializable <|.. com.example.editornetworkplan.Model.Element
+com.example.editornetworkplan.Model.Cloneable <|.. com.example.editornetworkplan.Model.Element
+@enduml

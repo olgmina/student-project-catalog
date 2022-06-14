@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.editorcss.Controller.EntranceController">
+   <children>
+      <Label layoutX="81.0" layoutY="37.0" text="Вход в режиме">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Button layoutX="86.0" layoutY="128.0" mnemonicParsing="false" onAction="#loadDesign" text="Дизайнера">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button layoutX="72.0" layoutY="194.0" mnemonicParsing="false" onAction="#onProg" text="Программиста">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

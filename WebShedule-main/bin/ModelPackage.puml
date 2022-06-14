@@ -1,0 +1,29 @@
+@startuml
+class WebSchedule.Program.Model.UserMapper {
+}
+class WebSchedule.Program.Model.UserDAO {
+}
+interface WebSchedule.Program.Model.Entity {
+}
+interface WebSchedule.Program.Model.DAO {
+}
+class WebSchedule.Program.Model.SpringSecurity {
+}
+class WebSchedule.Program.Model.SheduleDAOImpl {
+}
+class WebSchedule.Program.Model.SheduleMapper {
+}
+class WebSchedule.Program.Model.Schedule {
+}
+class WebSchedule.Program.Model.UserTable {
+}
+
+
+org.springframework.jdbc.core.RowMapper <|.. WebSchedule.Program.Model.UserMapper
+WebSchedule.Program.Model.DAO <|.. WebSchedule.Program.Model.UserDAO
+org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter <|-- WebSchedule.Program.Model.SpringSecurity
+WebSchedule.Program.Model.DAO <|.. WebSchedule.Program.Model.SheduleDAOImpl
+org.springframework.jdbc.core.RowMapper <|.. WebSchedule.Program.Model.SheduleMapper
+WebSchedule.Program.Model.Entity <|.. WebSchedule.Program.Model.Schedule
+WebSchedule.Program.Model.Entity <|.. WebSchedule.Program.Model.UserTable
+@enduml

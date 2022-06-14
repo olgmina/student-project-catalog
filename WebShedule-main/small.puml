@@ -1,0 +1,42 @@
+@startuml
+class WebSchedule.Program.Configuration.WebSecurityConfig {
+}
+class WebSchedule.Program.Controller.MainController {
+}
+interface WebSchedule.Program.Model.DAO {
+}
+class WebSchedule.Program.Exeption.RecordNotFoundException {
+}
+class WebSchedule.Program.Model.SpringSecurity {
+}
+class WebSchedule.Program.Service.UserDetailsServiceImpl {
+}
+class WebSchedule.Program.ProgramApplication {
+}
+class WebSchedule.Program.Model.SheduleDAOImpl {
+}
+class WebSchedule.Program.Model.Schedule {
+}
+class WebSchedule.Program.Model.UserMapper {
+}
+class WebSchedule.Program.Model.UserDAO {
+}
+interface WebSchedule.Program.Model.Entity {
+}
+class WebSchedule.Program.Model.SheduleMapper {
+}
+class WebSchedule.Program.Model.UserTable {
+}
+
+
+org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter <|-- WebSchedule.Program.Configuration.WebSecurityConfig
+WebSchedule.Program.Exeption.Exception <|-- WebSchedule.Program.Exeption.RecordNotFoundException
+org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter <|-- WebSchedule.Program.Model.SpringSecurity
+org.springframework.security.core.userdetails.UserDetailsService <|.. WebSchedule.Program.Service.UserDetailsServiceImpl
+WebSchedule.Program.Model.DAO <|.. WebSchedule.Program.Model.SheduleDAOImpl
+WebSchedule.Program.Model.Entity <|.. WebSchedule.Program.Model.Schedule
+org.springframework.jdbc.core.RowMapper <|.. WebSchedule.Program.Model.UserMapper
+WebSchedule.Program.Model.DAO <|.. WebSchedule.Program.Model.UserDAO
+org.springframework.jdbc.core.RowMapper <|.. WebSchedule.Program.Model.SheduleMapper
+WebSchedule.Program.Model.Entity <|.. WebSchedule.Program.Model.UserTable
+@enduml

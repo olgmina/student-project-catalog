@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<VBox>
+   <children>
+      <GridPane prefHeight="57.0" prefWidth="708.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="49.0" prefWidth="141.0" text="Подключаемое устройство" textAlignment="CENTER" wrapText="true" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </GridPane.margin>
+            </Label>
+            <Label prefHeight="42.0" prefWidth="97.0" text="Количество устройств" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </GridPane.margin>
+            </Label>
+            <Label prefHeight="49.0" prefWidth="97.0" text="Мощность (Вт)" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </GridPane.margin>
+            </Label>
+            <Label prefHeight="46.0" prefWidth="108.0" text="Время работы (часов в день)" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
+      <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="289.0" prefWidth="700.0">
+         <content>
+            <Accordion fx:id="mainAccordion" />
+         </content>
+      </ScrollPane>
+      <HBox fx:id="hBoxPrice" prefHeight="70.0" prefWidth="700.0">
+         <children>
+            <Label text="Стоимость одного кВт (руб.):">
+               <font>
+                  <Font name="Georgia Bold" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="30.0" left="30.0" right="10.0" top="30.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="72.0" prefWidth="700.0">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button fx:id="ok" defaultButton="true" mnemonicParsing="false" onAction="#actionButtonPressed" prefHeight="57.0" text="Рассчитать" textAlignment="CENTER" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="Georgia Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button fx:id="clear" mnemonicParsing="false" onAction="#actionButtonPressed" prefHeight="57.0" text="Сбросить данные" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="Georgia Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="250.0">
+               <children>
+                  <Button fx:id="save" layoutX="22.0" layoutY="8.0" mnemonicParsing="false" onAction="#handle" prefHeight="57.0" text="Сохранить" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="48.0">
+                     <font>
+                        <Font name="Georgia Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <GridPane style="-fx-border-style: solid; -fx-border-width: 2px;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="BOTTOM" nodeOrientation="LEFT_TO_RIGHT" prefHeight="72.0" prefWidth="350.0" text="Результат:" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Georgia Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Label alignment="CENTER_RIGHT" text="Общее потребление (КВт/мес.):" textAlignment="RIGHT" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
+                     </padding>
+                     <font>
+                        <Font name="Georgia" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+               <children>
+                  <Label alignment="CENTER_RIGHT" text="Итого к оплате (руб.):" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Georgia" size="17.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="consumption" alignment="CENTER" disable="true" layoutX="14.0" layoutY="10.0" prefHeight="31.0" prefWidth="326.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="200.0">
+                     <font>
+                        <Font name="Georgia" size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <TextField fx:id="payment" alignment="CENTER" disable="true" layoutX="14.0" layoutY="10.0" prefHeight="31.0" prefWidth="274.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="200.0">
+                     <font>
+                        <Font name="Georgia" size="17.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </GridPane>
+   </children>
+</VBox>
+</ScrollPane>

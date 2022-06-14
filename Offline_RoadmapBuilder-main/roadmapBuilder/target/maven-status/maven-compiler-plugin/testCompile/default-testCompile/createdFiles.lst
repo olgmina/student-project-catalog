@@ -1,0 +1,5 @@
+org\planworks\roadmap\graphicElements\MarkTest.class
+org\planworks\roadmap\adapters\MarkTasksTest.class
+org\planworks\roadmap\controller\ConstructorControllerTest.class
+org\planworks\roadmap\adapters\MarksTest.class
+org\planworks\roadmap\selector\MemoSelectTest.class

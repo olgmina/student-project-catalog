@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.editornetworkplan.Controller.MainController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="welcomeText" />
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Файл">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onLoad" text="Загрузить файл" />
+                  <MenuItem mnemonicParsing="false" onAction="#onloadBg" text="Загрузить фон" />
+                  <MenuItem mnemonicParsing="false" onAction="#SaveFaile" text="Сохранить" />
+                  <MenuItem mnemonicParsing="false" onAction="#onSavepng" text="Сохранить изображение" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Редактировать">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onAddElement" text="Добавить элемент" />
+                  <MenuItem mnemonicParsing="false" onAction="#onAddCable" text="Добавить соединение" />
+                  <MenuItem mnemonicParsing="false" onAction="#onMoveElement" text="Переместить" />
+                  <MenuItem mnemonicParsing="false" text="Выбрать" />
+                    <MenuItem mnemonicParsing="false" onAction="#onDeleteElement" text="Удалить" />
+                  <MenuItem mnemonicParsing="false" onAction="#onDeleteAllElement" text="Удалить все" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Помощь">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#showAbout" text="Справка" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Pane fx:id="mainPane" onMouseClicked="#onMClick" onMouseMoved="#onMm" prefHeight="400.0" prefWidth="600.0" style="-fx-border-width: 2; -fx-border-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <Canvas fx:id="canvas" height="404.0" width="602.0" />
+         </children></Pane>
+   </center>
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Выбирите элемент">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font></Label>
+            <ComboBox fx:id="box" prefWidth="150.0" />
+            <Label text="Действие:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="Mode" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
+   </left>
+</BorderPane>

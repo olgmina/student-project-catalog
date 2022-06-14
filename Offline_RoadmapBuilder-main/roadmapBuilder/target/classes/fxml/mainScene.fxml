@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.planworks.roadmap.controller.ConstructorController">
+   <top>
+       <MenuBar prefHeight="26.0" prefWidth="602.0">
+           <Menu mnemonicParsing="false" text="Файл">
+            <MenuItem mnemonicParsing="false" onAction="#captureAndSaveDisplay" text="Экспорт в png" />
+               <MenuItem mnemonicParsing="false" onAction="#openFile" text="Открыть новый файл" />
+            <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Сохранить" />
+           </Menu>
+           <Menu mnemonicParsing="false" text="Действия">
+               <MenuItem mnemonicParsing="false" onAction="#setBackground" text="Выбрать фоновое изображение" />
+           </Menu>
+           <Menu mnemonicParsing="false" text="Помощь">
+               <MenuItem mnemonicParsing="false" onAction="#showAbout" text="About" />
+           </Menu>
+       </MenuBar>
+   </top>
+   <center>
+       <Pane fx:id="workspace" onMouseClicked="#mouseClicked" onMouseDragged="#onDrag" onMousePressed="#onBegin" onMouseReleased="#onStop" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+           <Canvas fx:id="canvas" height="375.0" width="497.0" />
+       </Pane>
+   </center>
+   <left>
+       <VBox prefHeight="374.0" prefWidth="105.0" style="-fx-border-width: 1; -fx-border-color: black;" BorderPane.alignment="CENTER">
+         <Label text="Кисть">
+            <VBox.margin>
+               <Insets bottom="4.0" top="10.0" />
+            </VBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+           <ColorPicker fx:id="roadColor">
+            <VBox.margin>
+               <Insets right="2.0" />
+            </VBox.margin>
+            <value>
+               <Color />
+            </value></ColorPicker>
+         <Label text="Ширина кисти" />
+         <Slider fx:id="sizeRoad" min="1.0" value="1.0" />
+         <Button mnemonicParsing="false" onAction="#clearAll" prefHeight="26.0" prefWidth="100.0" text="Очистить поле" />
+         <CheckBox fx:id="selection" mnemonicParsing="false" text="Выделение">
+            <VBox.margin>
+               <Insets top="5.0" />
+            </VBox.margin>
+         </CheckBox>
+       </VBox>
+   </left>
+</BorderPane>

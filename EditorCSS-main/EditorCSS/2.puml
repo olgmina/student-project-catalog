@@ -1,0 +1,93 @@
+@startuml
+class com.example.editorcss.Controller.EntranceController {
++ <<Create>> EntranceController()
++ void loadDesign(ActionEvent)
++ void onProg(ActionEvent)
+}
+class com.example.editorcss.Model.Propertites {
+- HashMap<String,String> propertites
++ HashMap<String,String> getPropertites()
++ void setPropertites(HashMap<String,String>)
+}
+class com.example.editorcss.Model.ClassesAdapter {
+- List<ClassStyle> classStyleList
++ <<Create>> ClassesAdapter()
++ List<ClassStyle> getClassStyleList()
++ void PringStyleList()
++ List<String> getClassStyleListString()
++ void setClassStyleList(List<ClassStyle>)
++ ClassStyle addAll(ClassStyle)
++ void addAll(List<String>)
++ ClassStyle add(String)
+}
+class com.example.editorcss.Model.ClassStyle {
+- String Name
++ String getName()
++ void setName(String)
+}
+class com.example.editorcss.Controller.ViewerControll {
+- TextArea textCode
+- StyleCode styleCode
+- FileWorker worker
++ void Open(ActionEvent)
++ void Save(ActionEvent)
+}
+class com.example.editorcss.Model.StyleCode {
+~ ClassesAdapter classesAdapter
+~ Propertites propertites
+~ HashMap<ClassStyle,Propertites> code
+~ HashMap<String,HashMap<String,String>> codeString
++ <<Create>> StyleCode()
++ ClassesAdapter getClassesAdapter()
++ Propertites getPropertites()
++ HashMap<String,HashMap<String,String>> getCodeString()
++ void setCodeString(HashMap<String,HashMap<String,String>>)
++ void setCode(ClassStyle,Propertites)
++ void setCode(HashMap<String,HashMap<String,String>>)
++ StringBuilder createCssAllText()
+}
+class com.example.editorcss.Controller.DesignerController {
+- GridPane gridCss
+- Label labelCss
+- CheckBox checkBoxCss
+- Button buttonCss
+- Slider sliderCss
+- TextField textFieldCss
+- TextArea codetext
+- Label labelfilename
+- ChoiceBox<String> listfont
+- ChoiceBox<String> box
+- ChoiceBox<String> fontsize
+- ViewCSS viewCSS
+- FileWorker worker
+- StyleCode styleCode
+- String filename
+- StringBuilder allCssFile
+- String currentCssClass
+- HashMap<String,Parent> controls
++ void initialize(URL,ResourceBundle)
++ void chooseFileAction()
+- void initPreview(String)
++ void actionCssProperty(Event)
++ void saveStyle(ActionEvent)
+}
+class com.example.editorcss.Model.ViewCSS {
+- StringBuilder allCssFile
++ void setStyle(Parent,String,StyleCode)
++ void setAllStyle(HashMap<String,Parent>,StyleCode)
+}
+class com.example.editorcss.HelloApplication {
++ void start(Stage)
++ {static} void main(String[])
+}
+class com.example.editorcss.Model.FileWorker {
+~ byte[] data
++ void openFile(String,StyleCode)
++ void saveFile(StringBuilder)
++ void saveFile(String)
+}
+
+
+javafx.fxml.Initializable <|.. com.example.editorcss.Controller.DesignerController
+javafx.application.Application <|-- com.example.editorcss.HelloApplication
+@enduml

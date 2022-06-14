@@ -1,0 +1,39 @@
+@startuml
+class com.example.editornetworkplan.Model.ElementAdapter {
+}
+class com.example.editornetworkplan.Model.PlaneNetwork {
+}
+class com.example.editornetworkplan.Model.Cable {
+}
+class com.example.editornetworkplan.Model.Router {
+}
+class com.example.editornetworkplan.Model.PC {
+}
+class com.example.editornetworkplan.Model.FileWorker {
+}
+class com.example.editornetworkplan.Application {
+}
+class com.example.editornetworkplan.Controller.MainController {
+}
+class com.example.editornetworkplan.Model.ElementFactory {
+}
+class com.example.editornetworkplan.Model.Switch {
+}
+abstract class com.example.editornetworkplan.Model.Element {
+}
+
+
+java.io.Serializable <|.. com.example.editornetworkplan.Model.ElementAdapter
+java.io.Serializable <|.. com.example.editornetworkplan.Model.PlaneNetwork
+java.io.Serializable <|.. com.example.editornetworkplan.Model.Cable
+java.io.Serializable <|.. com.example.editornetworkplan.Model.Router
+com.example.editornetworkplan.Model.Element <|-- com.example.editornetworkplan.Model.Router
+java.io.Serializable <|.. com.example.editornetworkplan.Model.PC
+com.example.editornetworkplan.Model.Element <|-- com.example.editornetworkplan.Model.PC
+com.example.editornetworkplan.Application <|-- com.example.editornetworkplan.Application
+javafx.fxml.Initializable <|.. com.example.editornetworkplan.Controller.MainController
+java.io.Serializable <|.. com.example.editornetworkplan.Model.Switch
+com.example.editornetworkplan.Model.Element <|-- com.example.editornetworkplan.Model.Switch
+java.io.Serializable <|.. com.example.editornetworkplan.Model.Element
+com.example.editornetworkplan.Model.Cloneable <|.. com.example.editornetworkplan.Model.Element
+@enduml

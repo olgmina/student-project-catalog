@@ -1,0 +1,25 @@
+.button{
+     -fx-border-radius: 20;
+     -fx-border-color: #ff0000ff;
+     -fx-background-color: #00ffffff;
+     -fx-background-radius: 10;
+}
+
+.slider{
+}
+
+.label{
+}
+
+.check-box{
+}
+
+.root{
+}
+
+.combo-box{
+}
+
+.text-field{
+}
+

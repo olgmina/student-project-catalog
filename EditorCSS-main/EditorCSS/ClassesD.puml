@@ -1,0 +1,58 @@
+@startuml
+class com.example.editorcss.Controller.EntranceController {
+}
+class com.example.editorcss.Model.Propertites {
+- HashMap<String,String> propertites
+}
+class com.example.editorcss.Model.ClassesAdapter {
+- List<ClassStyle> classStyleList
+}
+class com.example.editorcss.Model.ClassStyle {
+- String Name
+}
+class com.example.editorcss.Controller.ViewerControll {
+}
+class com.example.editorcss.Model.StyleCode {
+~ ClassesAdapter classesAdapter
+~ Propertites propertites
+~ HashMap<ClassStyle,Propertites> code
+~ HashMap<String,HashMap<String,String>> codeString
+}
+interface com.example.editorcss.Model.Style {
+}
+class com.example.editorcss.Controller.DesignerController {
+- Label welcomeText
+- GridPane gridCss
+- Label labelCss
+- CheckBox checkBoxCss
+- Button buttonCss
+- ComboBox comboBoxCss
+- Slider sliderCss
+- TextField textFieldCss
+- Button buttonchoosefile
+- Button buttonsavefile
+- TextArea codetext
+- Label labelfilename
+- ChoiceBox<String> listfont
+- ChoiceBox<String> box
+- ChoiceBox<String> fontsize
+- FileWorker worker
+- StyleCode styleCode
+- FileCss model
+- String filename
+- StringBuilder allCssFile
+- String currentCssClass
+- HashMap<String,Parent> controls
+}
+class com.example.editorcss.Model.ViewCSS {
+- StringBuilder allCssFile
+}
+class com.example.editorcss.HelloApplication {
+}
+class com.example.editorcss.Model.FileWorker {
+~ byte[] data
+}
+
+
+javafx.application.Application <|-- com.example.editorcss.HelloApplication
+@enduml
