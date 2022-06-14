@@ -41,3 +41,5 @@ Alpha 1.0
 ## Источники вдохновения
 Вуз.
 
+## Приглашение к сотрудничеству
+Загрузите исходные тексты или клонируйте их с помощью команды git clone в выбранный каталог: git clone [https://github.com/Lyana2021/GrafRedactor.git](https://github.com/Lyana2021/GrafRedactor.git) и создайте ветку

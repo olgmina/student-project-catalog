@@ -34,4 +34,5 @@
 ![5](screenshots/5.png)
 
 В комплекте в папке examples два примера файлов с данными.
-
+## Приглашение к сотрудничеству
+Загрузите исходные тексты или клонируйте их с помощью команды git clone в выбранный каталог: git clone [gh repo clone range-vs/blocks-diagram](gh repo clone range-vs/blocks-diagram) и создайте ветку

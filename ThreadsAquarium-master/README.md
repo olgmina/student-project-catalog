@@ -7,3 +7,5 @@
   1. Поставщик-потребитель
 ## Инструменты
 ![Image alt](../img/Screenshot_5.png)
+## Приглашение к сотрудничеству
+Загрузите исходные тексты или клонируйте их с помощью команды git clone в выбранный каталог: git clone [https://github.com/SashaSunsh1ne/ThreadsAquarium.git](https://github.com/SashaSunsh1ne/ThreadsAquarium.git) и создайте ветку
